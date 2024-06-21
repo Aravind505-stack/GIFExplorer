@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video with GIF Preview</title>
+    <style>
+        body {
+           
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0;
+        }
+
+        #container {
+            width: 50%; /* Adjust the width as needed */
+            background: linear-gradient(225.79deg, rgba(215, 195, 255, 0.24) 22.79%, rgba(255, 195, 195, 0.24) 79.68%);
+           
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
+        }
+
+        #gifPreview, #videoContainer {
+            text-align: center; /* Center align the content within these divs */
+            margin-bottom: 20px; /* Add some bottom margin between sections */
+        }
+
+        #gifImage {
+            width: 100%; /* Ensure the GIF fills its container */
+            max-width: 40%; /* Limit the maximum width */
+            height: auto;
+            cursor: pointer;
+        }
+
+        #video {
+            width: 100%; /* Ensure the video fills its container */
+            max-width: 40%; /* Limit the maximum width */
+        }
+
+        .gif-row {
+            display: flex;
+            justify-content: space-between; /* Distribute items evenly along the row */
+            margin-top: 20px; /* Add some top margin between GIF rows */
+        }
+
+        .gif-item {
+            width: 48%; /* Adjust the width as needed */
+            border-radius: 8px;
+            overflow: hidden; /* Ensure GIFs are fully contained within their container */
+        }
+
+        .gif-item img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="gifPreview">
+            <h2>GIF Preview</h2>
+            <!-- Replace this with your direct link to the GIF -->
+            <img id="gifImage" src="./test5.gif" alt="GIF Preview" >
+            <p>Click on the above GIF</p>
+        </div>
+
+        <div id="videoContainer" style="display:none;">
+            <h2>Video</h2>
+            <iframe id="video"  src="https://player.vimeo.com/video/964375077" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <div class="gif-row">
+            <div class="gif-item">
+                <!-- Replace with your first GIF -->
+                <img src="./test5-1.gif" alt="First GIF">
+            </div>
+            <div class="gif-item">
+                <!-- Replace with your second GIF -->
+                <img src="./test5-2.gif" alt="Second GIF">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to handle click event on GIF image
+        function playVideo() {
+            const gifPreview = document.getElementById('gifPreview');
+            const videoContainer = document.getElementById('videoContainer');
+
+            gifPreview.style.display = 'none'; // Hide GIF preview
+            videoContainer.style.display = 'block'; // Show video container
+
+            const video = document.getElementById('video');
+            video.src = "https://player.vimeo.com/video/964375077"; // Ensure the correct video source
+            video.play().catch(error => {
+                console.error('Error trying to play the video:', error);
+            });
+        }
+
+        // Attach click event listener to the GIF image
+        const gifImage = document.getElementById('gifImage');
+        gifImage.addEventListener('click', playVideo);
+    </script>
+</body>
+</html>
