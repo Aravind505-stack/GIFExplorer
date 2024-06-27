@@ -6,7 +6,6 @@
     <title>Video with GIF Preview</title>
     <style>
         body {
-           
             display: flex;
             justify-content: center;
             align-items: center;
@@ -15,9 +14,8 @@
         }
 
         #container {
-            width: 50%; /* Adjust the width as needed */
+            width: 60%; /* Adjust the width as needed */
             background: linear-gradient(225.79deg, rgba(215, 195, 255, 0.24) 22.79%, rgba(255, 195, 195, 0.24) 79.68%);
-           
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
@@ -70,7 +68,7 @@
 
         <div id="videoContainer" style="display:none;">
             <h2>Video</h2>
-            <iframe id="video"  src="https://player.vimeo.com/video/964375077" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="video" width="310" height="200" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media"></iframe>
         </div>
 
         <div class="gif-row">
@@ -95,10 +93,7 @@
             videoContainer.style.display = 'block'; // Show video container
 
             const video = document.getElementById('video');
-            video.src = "https://player.vimeo.com/video/964375077"; // Ensure the correct video source
-            video.play().catch(error => {
-                console.error('Error trying to play the video:', error);
-            });
+            video.src = "https://www.youtube.com/embed/bjCJul-mkS4?autoplay=1"; // Ensure the correct video source with autoplay
         }
 
         // Attach click event listener to the GIF image
